@@ -1,3 +1,0 @@
-ado
-exit, clear STATA
-

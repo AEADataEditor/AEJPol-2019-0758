@@ -1,0 +1,6 @@
+# configuration created on 2022-02-21_16:53
+VERSION=17
+TAG=2022-02-21
+MYHUBID=aeadataeditor
+MYIMG=aearep-2881
+STATALIC=/home/vilhuber/Workspace/git/AEA/Verification/aearep-2881/158242/stata.lic.17

@@ -32,6 +32,7 @@ RUN apt-get update \
          git \
          nano \
          unzip \
+         libgdal-dev gdal-bin libproj-dev libgeos-dev \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
@@ -47,8 +48,10 @@ ENV LANG en_US.utf8
 
 USER rstudio
 COPY setup.do /setup.do
-WORKDIR /home/statauser
+COPY setup.R /setup.R
+WORKDIR /home/rstudio
 RUN /usr/local/stata/stata do /setup.do | tee setup.$(date +%F).log
+RUN Rscript /setup.R
 
 #=============================================== Clean up
 #  then delete the license again
@@ -57,6 +60,6 @@ RUN rm /usr/local/stata/stata.lic
 
 # Setup for standard operation
 USER rstudio
-WORKDIR /code
-ENTRYPOINT ["stata-mp"]
+WORKDIR /project
+ENTRYPOINT ["/bin/bash"]
 

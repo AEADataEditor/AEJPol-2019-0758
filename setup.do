@@ -4,7 +4,7 @@ sysdir
 /* add packages to the macro */
 
 * *** Add required packages from SSC to this list ***
-    local ssc_packages "estout"
+    local ssc_packages "estout unique"
 
     // local ssc_packages "estout boottest"
     
